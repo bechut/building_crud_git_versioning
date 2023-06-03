@@ -1,15 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider } from "antd";
+import Routers from "./routers";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "#3b4366",
+        },
+        components: {
+          Layout: {
+            colorBgHeader: "#292f4c", // colorBgBase -3% lightness, i've pre-calculated these values manually, but it'd be smart to use color.js or something like that to manage these manipulations
+          },
+          Menu: {
+            // if you use "dark" theme on menu
+            colorItemBg: "#292f4c", // colorBgBase -3% lightness
+            colorSubItemBg: "#00b96b", // colorBgBase -6% lightness
+          },
+        },
+      }}
+    >
+      <Routers />
+    </ConfigProvider>
   </React.StrictMode>
 );
 
