@@ -3,6 +3,7 @@ import { axiosCaller, BuildingCRUDInstance } from "./api";
 export const apiNames = {
   buildings: {
     create: "create_building",
+    list: "list_building",
   },
 };
 
@@ -13,8 +14,13 @@ const metadata = [
     child: [
       {
         method: axiosCaller("post"),
-        uri: "/:id",
+        uri: "/",
         name: apiNames.buildings.create,
+      },
+      {
+        method: axiosCaller("get"),
+        uri: "/",
+        name: apiNames.buildings.list,
       },
     ],
   },
