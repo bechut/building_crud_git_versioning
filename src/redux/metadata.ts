@@ -13,7 +13,7 @@ const metadata = [
     child: [
       {
         method: axiosCaller("post"),
-        uri: "/:id",
+        uri: "/",
         name: apiNames.buildings.create,
       },
     ],
