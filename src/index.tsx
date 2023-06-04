@@ -4,31 +4,35 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider } from "antd";
 import Routers from "./routers";
+import { Provider } from "react-redux";
+import { store } from "./redux";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: "#3b4366",
-        },
-        components: {
-          Layout: {
-            colorBgHeader: "#292f4c", // colorBgBase -3% lightness, i've pre-calculated these values manually, but it'd be smart to use color.js or something like that to manage these manipulations
+    <Provider store={store}>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#3b4366",
           },
-          Menu: {
-            // if you use "dark" theme on menu
-            colorItemBg: "#292f4c", // colorBgBase -3% lightness
-            colorSubItemBg: "#00b96b", // colorBgBase -6% lightness
+          components: {
+            Layout: {
+              colorBgHeader: "#292f4c", // colorBgBase -3% lightness, i've pre-calculated these values manually, but it'd be smart to use color.js or something like that to manage these manipulations
+            },
+            Menu: {
+              // if you use "dark" theme on menu
+              colorItemBg: "#292f4c", // colorBgBase -3% lightness
+              colorSubItemBg: "#00b96b", // colorBgBase -6% lightness
+            },
           },
-        },
-      }}
-    >
-      <Routers />
-    </ConfigProvider>
+        }}
+      >
+        <Routers />
+      </ConfigProvider>
+    </Provider>
   </React.StrictMode>
 );
 

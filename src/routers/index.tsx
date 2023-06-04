@@ -11,13 +11,13 @@ import {
 import metadata, { TRouterMetadata } from "./metadata";
 import { Result, Button } from "antd";
 import { memo, FC } from "react";
-// import { RootState } from "../redux";
-// import { useSelector } from "react-redux";
+import { RootState } from "../redux";
+import { useSelector } from "react-redux";
 // import cookie from "react-cookies";
 // import { TOKEN_NAME } from "../redux/api";
 
 export type LayoutProps = {
-  states: any;
+  reduxStates: RootState;
   params: Readonly<Params<string>>;
   navigate: NavigateFunction;
   accessToken: string;
@@ -30,9 +30,11 @@ const TemplateComponent: FC<any> = ({ Layout, Page }) => {
   const params = useParams();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const reduxStates = useSelector((state: RootState) => state);
 
   return (
     <Layout
+      reduxStates={reduxStates}
       params={params}
       navigate={navigate}
       setSearchParams={setSearchParams}
