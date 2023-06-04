@@ -15,6 +15,7 @@ import { TIME_FORMAT } from "../../constants";
 import moment from "moment";
 import { LayoutProps } from "../../routers";
 import { ReduxDispatchHelper } from "../../redux/helper";
+import CreateBuilding from "./create";
 
 interface IList {
   page: number;
@@ -33,6 +34,8 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
     populated: false,
   });
 
+  const [createBuildingVisible, setCreateBuildingVisible] = useState<any>(null);
+
   const onSetBuildingQuery = (states: any) =>
     setBuildingsQuery((prev) => ({ ...prev, ...states }));
 
@@ -50,6 +53,11 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
   useMemo(() => {
     handleFetchBuilding();
   }, [buildingsQuery.page]);
+
+  useMemo(() => {
+    if (createBuildingVisible === false)
+    handleFetchBuilding();
+  }, [createBuildingVisible]);
 
   const columns = [
     {
@@ -98,10 +106,15 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
   };
 
   return (
-    <Space direction="vertical">
-      <Row>
+    <Space direction="vertical" style={{ width: "100%" }}>
+      <Row justify={"space-between"} align={"middle"}>
         <Col>
-          <Typography.Title level={1}>Building</Typography.Title>
+          <Typography.Title level={2}>Building</Typography.Title>
+        </Col>
+        <Col>
+          <Button onClick={() => setCreateBuildingVisible(true)} type="primary">
+            Create
+          </Button>
         </Col>
       </Row>
       {buildings?.data?.pager && (
@@ -118,6 +131,11 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
           }}
         />
       )}
+      <CreateBuilding
+        visible={createBuildingVisible}
+        setVisible={setCreateBuildingVisible}
+        reduxStates={reduxStates}
+      />
     </Space>
   );
 };
