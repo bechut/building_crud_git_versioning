@@ -16,6 +16,7 @@ import moment from "moment";
 import { LayoutProps } from "../../routers";
 import { ReduxDispatchHelper } from "../../redux/helper";
 import CreateBuilding from "./create";
+import { Link } from "react-router-dom";
 
 interface IList {
   page: number;
@@ -55,8 +56,7 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
   }, [buildingsQuery.page]);
 
   useMemo(() => {
-    if (createBuildingVisible === false)
-    handleFetchBuilding();
+    if (createBuildingVisible === false) handleFetchBuilding();
   }, [createBuildingVisible]);
 
   const columns = [
@@ -66,7 +66,9 @@ const BuildingList: FC<LayoutProps> = ({ reduxStates }) => {
       key: "id",
       render: (id: string) => (
         <Tooltip title={id}>
-          <Button type="link">{id.slice(0, 8)}</Button>
+          <Link to={"/buildings/" + id}>
+            <Button type="link">{id.slice(0, 8)}</Button>
+          </Link>
         </Tooltip>
       ),
     },
