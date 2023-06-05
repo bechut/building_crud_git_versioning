@@ -59,7 +59,6 @@ export function getInstance(baseURL: string, timeout: number) {
           Authorization: `Bearer ${accessToken}`,
         }
       : { ...config.headers };
-    console.log(config.headers);
     return config;
   });
 
