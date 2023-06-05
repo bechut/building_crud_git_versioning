@@ -18,6 +18,12 @@ const metadata: TRouterMetadata[] = [
     layout: "non-auth",
     auth: false,
   },
+  {
+    page: "buildings/detail",
+    path: "/buildings/:id",
+    layout: "non-auth",
+    auth: false,
+  },
 ];
 
 export default metadata;
