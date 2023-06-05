@@ -1,0 +1,52 @@
+[33mcommit e6bdec01684f3b66a6a85de246a55f32725d619d[m[33m ([m[1;36mHEAD -> [m[1;32mactive/version-1[m[33m)[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Mon Jun 5 16:11:40 2023 +0700
+
+    version/1.1.0
+    
+    - integrate building update / detail
+
+[33mcommit c35618f8f74437622e076275e04ed8b759aec328[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Sun Jun 4 15:05:36 2023 +0700
+
+    version/1.0.0
+    
+    - integrate list buildings
+    - integrate create building
+    - add button create building
+    - fetch buildings after create
+
+[33mcommit 32aaf61b7fa2c6431408debd163400afb1e82363[m[33m ([m[1;31morigin/configuration[m[33m, [m[1;32mconfiguration[m[33m)[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Sun Jun 4 10:22:25 2023 +0700
+
+    configuration/0.4.0
+    
+    - add moment, time-format constant
+
+[33mcommit fc58851f6fb1001f3a38b81c17e8fc81b70ed2fa[m[33m ([m[1;32mversion-1[m[33m)[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Sun Jun 4 09:44:10 2023 +0700
+
+    configuration/0.3.0
+    
+    - add redux state to layout
+
+[33mcommit 40993d1d4636a41ec86013e41814c0ef0657cfce[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Sat Jun 3 20:27:19 2023 +0700
+
+    configuration/0.2.0
+    
+    - config antd, react-router
+    - install lodash
+    - config axios, redux-toolkit, react-cookies
+    - update .gitignore, .env
+    - remove package-lock, update gitignore
+
+[33mcommit d2678caf19badc88f595e140c43cfbed759de13e[m
+Author: Phuong Anh <anh.ngphuong@kyanon.digital>
+Date:   Sat Jun 3 15:50:25 2023 +0700
+
+    Initialize project using Create React App
